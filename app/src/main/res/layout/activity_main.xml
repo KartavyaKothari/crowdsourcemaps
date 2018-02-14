@@ -22,6 +22,7 @@
         android:layout_width="213dp"
         android:layout_height="54dp"
         android:layout_marginTop="40dp"
+        android:onClick="addPlace"
         android:text="Add This Place"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
