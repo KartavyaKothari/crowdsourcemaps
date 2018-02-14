@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".AddPlace" />
+        <activity android:name=".questions" />
+        <activity android:name=".PlaceDetails"></activity>
     </application>
 
 </manifest>

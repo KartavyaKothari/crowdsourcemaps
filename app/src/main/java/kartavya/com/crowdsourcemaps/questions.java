@@ -3,11 +3,11 @@ package kartavya.com.crowdsourcemaps;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class MainActivity extends AppCompatActivity {
+public class questions extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_place_details);
+        setContentView(R.layout.activity_questions);
     }
 }
