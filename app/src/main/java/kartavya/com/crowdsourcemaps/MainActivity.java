@@ -13,6 +13,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void nearbyPlace(View view){
+        Intent intent = new Intent(this,NearbyPlaces.class);
+        startActivity(intent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

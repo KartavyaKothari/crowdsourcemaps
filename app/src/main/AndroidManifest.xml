@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".AddPlace" />
         <activity android:name=".questions" />
-        <activity android:name=".PlaceDetails"></activity>
+        <activity android:name=".PlaceDetails" />
+        <activity android:name=".NearbyPlaces"></activity>
     </application>
 
 </manifest>
