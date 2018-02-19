@@ -21,37 +21,42 @@
         android:id="@+id/addPlace"
         android:layout_width="213dp"
         android:layout_height="54dp"
+        android:layout_marginBottom="8dp"
         android:layout_marginTop="40dp"
         android:onClick="addPlace"
         android:text="Add This Place"
+        app:layout_constraintBottom_toTopOf="@+id/nearbyPlaces"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/currLocationMap" />
+        app:layout_constraintTop_toBottomOf="@+id/currLocationMap"
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/nearbyPlaces"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginBottom="36dp"
         android:onClick="nearbyPlace"
         android:text="Nearby Places"
         app:layout_constraintBottom_toTopOf="@+id/radiusSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/addPlace"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <SeekBar
         android:id="@+id/radiusSeekBar"
         android:layout_width="259dp"
         android:layout_height="30dp"
-        android:layout_marginBottom="28dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginBottom="32dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintHorizontal_bias="0.504"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
 </android.support.constraint.ConstraintLayout>
