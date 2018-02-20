@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".AddPlace" />
-        <activity android:name=".questions" />
+        <activity android:name=".Questions" />
         <activity android:name=".PlaceDetails" />
         <activity android:name=".NearbyPlaces"></activity>
     </application>

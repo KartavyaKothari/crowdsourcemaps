@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
-public class questions extends AppCompatActivity {
+public class Questions extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

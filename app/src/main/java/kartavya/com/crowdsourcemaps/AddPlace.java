@@ -8,7 +8,7 @@ import android.view.View;
 public class AddPlace extends AppCompatActivity {
 
     public void addPlace(View view){
-        Intent intent = new Intent(this,questions.class);
+        Intent intent = new Intent(this,Questions.class);
         startActivity(intent);
     }
 
