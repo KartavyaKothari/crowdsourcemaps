@@ -26,31 +26,25 @@
             tools:layout_editor_absoluteX="31dp"
             tools:layout_editor_absoluteY="163dp">
 
-            <LinearLayout
+            <Button
+                android:id="@+id/getTime"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical">
+                android:layout_height="wrap_content"
+                android:baselineAligned="false"
+                android:text="@string/Timings" />
 
-                <Button
-                    android:id="@+id/getTime"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:baselineAligned="false"
-                    android:text="Timings" />
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="21dp" />
 
-                <Space
-                    android:layout_width="match_parent"
-                    android:layout_height="21dp" />
-
-                <TextView
-                    android:id="@+id/showTime"
-                    android:layout_width="match_parent"
-                    android:layout_height="25dp"
-                    android:baselineAligned="false"
-                    android:text="9 am - 12 pm"
-                    tools:layout_editor_absoluteX="59dp"
-                    tools:layout_editor_absoluteY="309dp" />
-            </LinearLayout>
+            <TextView
+                android:id="@+id/showTime"
+                android:layout_width="match_parent"
+                android:layout_height="25dp"
+                android:baselineAligned="false"
+                android:text="9 am - 12 pm"
+                tools:layout_editor_absoluteX="59dp"
+                tools:layout_editor_absoluteY="309dp" />
 
         </LinearLayout>
 
@@ -78,7 +72,7 @@
             android:layout_width="3dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text=">" />
+            android:text="@string/MoreImages" />
 
     </LinearLayout>
 
@@ -101,7 +95,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
-        android:text="Review"
+        android:text="@string/PlaceReview"
         app:layout_constraintBottom_toTopOf="@+id/gotoChat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
@@ -116,7 +110,7 @@
         android:layout_marginBottom="28dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Public Chat "
+        android:text="@string/PublicChat"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -11,11 +11,12 @@
         android:layout_width="0dp"
         android:layout_height="231dp"
         android:layout_marginTop="1dp"
+        android:contentDescription="@string/MapLocation"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_launcher_background" android:contentDescription="TODO"/>
+        app:srcCompat="@drawable/ic_launcher_background" />
 
     <Button
         android:id="@+id/addPlace"
@@ -24,7 +25,7 @@
         android:layout_marginBottom="8dp"
         android:layout_marginTop="40dp"
         android:onClick="addPlace"
-        android:text="Add This Place"
+        android:text="@string/AddThisPlace"
         app:layout_constraintBottom_toTopOf="@+id/nearbyPlaces"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
@@ -40,7 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
         android:onClick="nearbyPlace"
-        android:text="Nearby Places"
+        android:text="@string/NearbyPlaces"
         app:layout_constraintBottom_toTopOf="@+id/radiusSeekBar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

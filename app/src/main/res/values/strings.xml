@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">Crowd source maps</string>
+
+    //Buttons
+    <string name="AddThisPlace">Add This Place</string>
+    <string name="NearbyPlaces">Nearby Places</string>
+    <string name="AddImages">Add Images</string>
+    <string name="Add">Add</string>
+    <string name="PublicChat">Public Chat</string>
+    <string name="MoreImages"> > </string>
+    <string name="Timings">Timings</string>
+    <string name="Submit">Submit</string>
+
+    //InputTexts
+    <string name="PlaceName">Name</string>
+    <string name="PlaceReview">Review</string>
+
+    //contentDescription
+    <string name="MapLocation">MapLocation</string>
 </resources>
+
