@@ -16,4 +16,20 @@ public class QuestionSet {
         Question = question;
         QuestionID = questionID;
     }
+
+    public String getQuestion() {
+        return Question;
+    }
+
+    public void setQuestion(String question) {
+        Question = question;
+    }
+
+    public String getQuestionID() {
+        return QuestionID;
+    }
+
+    public void setQuestionID(String questionID) {
+        QuestionID = questionID;
+    }
 }
