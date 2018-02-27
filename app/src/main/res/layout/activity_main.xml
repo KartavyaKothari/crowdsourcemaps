@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Background"
     tools:context="kartavya.com.crowdsourcemaps.MainActivity">
 
     <ImageView
@@ -26,6 +27,7 @@
         android:layout_marginTop="40dp"
         android:onClick="addPlace"
         android:text="@string/AddThisPlace"
+        android:background="@color/ButtonColor"
         app:layout_constraintBottom_toTopOf="@+id/nearbyPlaces"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.503"
@@ -37,9 +39,10 @@
 
     <Button
         android:id="@+id/nearbyPlaces"
-        android:layout_width="wrap_content"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="36dp"
+        android:background="@color/ButtonColor"
         android:onClick="nearbyPlace"
         android:text="@string/NearbyPlaces"
         app:layout_constraintBottom_toTopOf="@+id/radiusSeekBar"

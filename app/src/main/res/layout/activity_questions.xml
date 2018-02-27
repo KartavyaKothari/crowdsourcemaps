@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Background"
     tools:context="kartavya.com.crowdsourcemaps.questions">
 
     <TextView
@@ -115,6 +116,7 @@
         android:layout_marginStart="8dp"
         android:onClick="displayToastMsg"
         android:text="@string/Submit"
+        android:background="@color/ButtonColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
