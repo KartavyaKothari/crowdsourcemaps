@@ -11,6 +11,9 @@ public class Place {
     private String PlaceCoordinates;
     private String PlaceRating;
 
+    public Place() {
+    }
+
     public Place(String placeID, String placeName, String placeCoordinates, String placeRating) {
         PlaceID = placeID;
         PlaceName = placeName;
