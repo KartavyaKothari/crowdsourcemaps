@@ -10,13 +10,13 @@ public class PlaceReview {
     private String PlaceID;
     private String Review;
 
+    public PlaceReview() {
+    }
+
     public PlaceReview(String userID, String placeID, String review) {
         UserID = userID;
         PlaceID = placeID;
         Review = review;
-    }
-
-    public PlaceReview() {
     }
 
     public String getUserID() {
