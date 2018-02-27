@@ -14,6 +14,13 @@ public class RandQuestions {
     public RandQuestions() {
     }
 
+    public RandQuestions(String answerID, String placeID, int noOfTimesAnswered, String questionID) {
+        AnswerID = answerID;
+        PlaceID = placeID;
+        NoOfTimesAnswered = noOfTimesAnswered;
+        QuestionID = questionID;
+    }
+
     public String getAnswerID() {
         return AnswerID;
     }
