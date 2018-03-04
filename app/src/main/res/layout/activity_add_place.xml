@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Background"
     tools:context="kartavya.com.crowdsourcemaps.AddPlace">
 
     <EditText
@@ -44,6 +45,7 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="44dp"
         android:text="@string/AddImages"
+        android:background="@color/ButtonColor"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
@@ -59,6 +61,7 @@
         android:layout_marginTop="8dp"
         android:onClick="addPlace"
         android:text="@string/Add"
+        android:background="@color/ButtonColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

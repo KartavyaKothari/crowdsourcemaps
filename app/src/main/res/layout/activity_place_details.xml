@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Background"
     tools:context="kartavya.com.crowdsourcemaps.PlaceDetails">
 
     <ImageView
@@ -12,6 +13,7 @@
         android:layout_height="142dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
+        android:contentDescription="Place holder image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -42,7 +44,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:baselineAligned="false"
-                android:text="@string/Timings" />
+                android:text="@string/Timings"
+                android:background="@color/ButtonColor" />
 
             <Space
                 android:layout_width="match_parent"
@@ -65,6 +68,7 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:baselineAligned="false"
+            android:contentDescription="Place holder image"
             app:srcCompat="@drawable/ic_launcher_foreground"
             tools:layout_editor_absoluteX="183dp"
             tools:layout_editor_absoluteY="279dp" />
@@ -74,6 +78,7 @@
             android:layout_width="9dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:contentDescription="Place holder image"
             app:srcCompat="@mipmap/ic_launcher_round"
             tools:layout_editor_absoluteX="242dp"
             tools:layout_editor_absoluteY="279dp" />
@@ -83,7 +88,8 @@
             android:layout_width="3dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="@string/MoreImages" />
+            android:text="@string/MoreImages"
+            android:background="@color/ButtonColor" />
 
     </LinearLayout>
 
@@ -111,6 +117,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:text="@string/PublicChat"
+        android:background="@color/ButtonColor"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

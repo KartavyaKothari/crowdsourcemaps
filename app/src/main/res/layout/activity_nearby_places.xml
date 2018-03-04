@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/Background"
     tools:context="kartavya.com.crowdsourcemaps.NearbyPlaces">
 
     <android.support.v4.widget.NestedScrollView
@@ -21,6 +22,7 @@
             android:id="@+id/nearbyPlacesMainLayout"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:onClick="placeDetails"
             android:orientation="vertical">
 
             <LinearLayout
@@ -30,6 +32,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="placeDetails"
                 android:orientation="horizontal">
 
                 <TextView
@@ -65,6 +68,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="placeDetails"
                 android:orientation="horizontal"
                 tools:layout_editor_absoluteY="99dp">
 
@@ -101,6 +105,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="placeDetails"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="188dp">
@@ -138,6 +143,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="placeDetails"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="278dp">
@@ -175,6 +181,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="placeDetails"
                 android:orientation="horizontal"
                 app:layout_constraintStart_toStartOf="parent"
                 tools:layout_editor_absoluteY="369dp">
@@ -212,6 +219,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="placeDetails"
                 android:orientation="horizontal"
                 tools:layout_editor_absoluteX="8dp"
                 tools:layout_editor_absoluteY="460dp">
@@ -249,6 +257,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="placeDetails"
                 android:orientation="horizontal">
 
                 <TextView
@@ -284,6 +293,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="placeDetails"
                 android:orientation="horizontal">
 
                 <TextView
@@ -319,6 +329,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="placeDetails"
                 android:orientation="horizontal">
 
                 <TextView
@@ -354,6 +365,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="placeDetails"
                 android:orientation="horizontal">
 
                 <TextView
@@ -388,6 +400,7 @@
                 android:background="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:focusable="true"
+                android:onClick="placeDetails"
                 android:orientation="horizontal">
 
                 <TextView
