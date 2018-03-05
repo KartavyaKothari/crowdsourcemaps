@@ -6,50 +6,50 @@ package kartavya.com.crowdsourcemaps.Entity;
 
 public class Place {
 
-    private String PlaceID;
-    private String PlaceName;
-    private String PlaceCoordinates;
-    private String PlaceRating;
+    private String placeID;
+    private String placeName;
+    private String placeCoordinates;
+    private String placeRating;
 
     public Place() {
     }
 
     public Place(String placeID, String placeName, String placeCoordinates, String placeRating) {
-        PlaceID = placeID;
-        PlaceName = placeName;
-        PlaceCoordinates = placeCoordinates;
-        PlaceRating = placeRating;
+        this.placeID = placeID;
+        this.placeName = placeName;
+        this.placeCoordinates = placeCoordinates;
+        this.placeRating = placeRating;
     }
 
     public String getPlaceID() {
-        return PlaceID;
+        return placeID;
     }
 
     public void setPlaceID(String placeID) {
-        PlaceID = placeID;
+        this.placeID = placeID;
     }
 
     public String getPlaceName() {
-        return PlaceName;
+        return placeName;
     }
 
     public void setPlaceName(String placeName) {
-        PlaceName = placeName;
+        this.placeName = placeName;
     }
 
     public String getPlaceCoordinates() {
-        return PlaceCoordinates;
+        return placeCoordinates;
     }
 
     public void setPlaceCoordinates(String placeCoordinates) {
-        PlaceCoordinates = placeCoordinates;
+        this.placeCoordinates = placeCoordinates;
     }
 
     public String getPlaceRating() {
-        return PlaceRating;
+        return placeRating;
     }
 
     public void setPlaceRating(String placeRating) {
-        PlaceRating = placeRating;
+        this.placeRating = placeRating;
     }
 }
