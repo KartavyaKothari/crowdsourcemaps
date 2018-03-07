@@ -6,31 +6,27 @@ package kartavya.com.crowdsourcemaps.Entity;
 
 public class User {
 
-    private String UserEmailID;
+    private String UserID;
     private String UserName;
-    private int UserID;
-    private String UserSex;
-    private int UserAge;
-    private String UserDOB;
+    private int UserEmailID;
+    private String UserLastKnownLocation;
 
     public User() {
     }
 
-    public User(String userEmailID, String userName, int userID, String userSex, int userAge, String userDOB) {
-        UserEmailID = userEmailID;
-        UserName = userName;
+    public User(String userID, String userName, int userEmailID, String userLastKnownLocation) {
         UserID = userID;
-        UserSex = userSex;
-        UserAge = userAge;
-        UserDOB = userDOB;
-    }
-
-    public String getUserEmailID() {
-        return UserEmailID;
-    }
-
-    public void setUserEmailID(String userEmailID) {
+        UserName = userName;
         UserEmailID = userEmailID;
+        UserLastKnownLocation = userLastKnownLocation;
+    }
+
+    public String getUserID() {
+        return UserID;
+    }
+
+    public void setUserID(String userID) {
+        UserID = userID;
     }
 
     public String getUserName() {
@@ -41,35 +37,19 @@ public class User {
         UserName = userName;
     }
 
-    public int getUserID() {
-        return UserID;
+    public int getUserEmailID() {
+        return UserEmailID;
     }
 
-    public void setUserID(int userID) {
-        UserID = userID;
+    public void setUserEmailID(int userEmailID) {
+        UserEmailID = userEmailID;
     }
 
-    public String getUserSex() {
-        return UserSex;
+    public String getUserLastKnownLocation() {
+        return UserLastKnownLocation;
     }
 
-    public void setUserSex(String userSex) {
-        UserSex = userSex;
-    }
-
-    public int getUserAge() {
-        return UserAge;
-    }
-
-    public void setUserAge(int userAge) {
-        UserAge = userAge;
-    }
-
-    public String getUserDOB() {
-        return UserDOB;
-    }
-
-    public void setUserDOB(String userDOB) {
-        UserDOB = userDOB;
+    public void setUserLastKnownLocation(String userLastKnownLocation) {
+        UserLastKnownLocation = userLastKnownLocation;
     }
 }

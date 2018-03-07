@@ -6,40 +6,20 @@ package kartavya.com.crowdsourcemaps.Entity;
 
 public class UserInApp {
 
-    private String UserLastKnownLocation;
-    private int UserInAppID;
-    private int UserRank;
+    private int UserID;
 
     public UserInApp() {
     }
 
-    public UserInApp(String userLastKnownLocation, int userInAppID, int userRank) {
-        UserLastKnownLocation = userLastKnownLocation;
-        UserInAppID = userInAppID;
-        UserRank = userRank;
+    public UserInApp(int userID) {
+        UserID = userID;
     }
 
-    public String getUserLastKnownLocation() {
-        return UserLastKnownLocation;
+    public int getUserID() {
+        return UserID;
     }
 
-    public void setUserLastKnownLocation(String userLastKnownLocation) {
-        UserLastKnownLocation = userLastKnownLocation;
-    }
-
-    public int getUserInAppID() {
-        return UserInAppID;
-    }
-
-    public void setUserInAppID(int userInAppID) {
-        UserInAppID = userInAppID;
-    }
-
-    public int getUserRank() {
-        return UserRank;
-    }
-
-    public void setUserRank(int userRank) {
-        UserRank = userRank;
+    public void setUserID(int userID) {
+        UserID = userID;
     }
 }

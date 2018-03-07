@@ -8,17 +8,17 @@ public class RandQuestions {
 
     private String AnswerID;
     private String PlaceID;
-    private int NoOfTimesAnswered;
     private String QuestionID;
+    private String Answer;
 
     public RandQuestions() {
     }
 
-    public RandQuestions(String answerID, String placeID, int noOfTimesAnswered, String questionID) {
+    public RandQuestions(String answerID, String placeID, String questionID, String answer) {
         AnswerID = answerID;
         PlaceID = placeID;
-        NoOfTimesAnswered = noOfTimesAnswered;
         QuestionID = questionID;
+        Answer = answer;
     }
 
     public String getAnswerID() {
@@ -37,19 +37,19 @@ public class RandQuestions {
         PlaceID = placeID;
     }
 
-    public int getNoOfTimesAnswered() {
-        return NoOfTimesAnswered;
-    }
-
-    public void setNoOfTimesAnswered(int noOfTimesAnswered) {
-        NoOfTimesAnswered = noOfTimesAnswered;
-    }
-
     public String getQuestionID() {
         return QuestionID;
     }
 
     public void setQuestionID(String questionID) {
         QuestionID = questionID;
+    }
+
+    public String getAnswer() {
+        return Answer;
+    }
+
+    public void setAnswer(String answer) {
+        Answer = answer;
     }
 }
