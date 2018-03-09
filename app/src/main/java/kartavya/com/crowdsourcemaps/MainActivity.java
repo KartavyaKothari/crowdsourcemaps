@@ -36,8 +36,14 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     LocationManager locationManager;
     LocationListener locationListener;
 
+    Location placeLocation;
+
     public void addPlace(View view) {
         Intent intent = new Intent(this, AddPlace.class);
+
+        intent.putExtra("Latitude",placeLocation.getLatitude());
+        intent.putExtra("Longitude",placeLocation.getLongitude());
+
         startActivity(intent);
     }
 
@@ -122,6 +128,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
+                placeLocation = location;
                 // Add a marker in Sydney, Australia,
                 // and move the map's camera to the same location.
                 LatLng currentPlace = new LatLng(location.getLatitude(), location.getLongitude());
