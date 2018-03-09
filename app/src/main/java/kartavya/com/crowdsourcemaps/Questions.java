@@ -6,23 +6,29 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import kartavya.com.crowdsourcemaps.Entity.Place;
+
 public class Questions extends AppCompatActivity {
+
+    FirebaseDatabase firebaseDatabase;
+    DatabaseReference databaseReference;
+    Place newPlace;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("places");
+
+        newPlace = (Place)getIntent().getSerializableExtra("Place");
     }
 
-    public void toastMsg(String msg) {
-
-        Toast toast = Toast.makeText(this, msg, Toast.LENGTH_LONG);
-        toast.show();
-    }
-
-    public void displayToastMsg(View v) {
-
-        toastMsg("Place Added!");
-
+    public void addPlaceToDatabase(View v) {
+        databaseReference.push().setValue(newPlace);
     }
 }
