@@ -21,11 +21,6 @@ public class AddPlace extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_place);
 
-        Place newPlace = new Place();
-
-        nameOfPlace = (EditText) findViewById(R.id.newPlaceName);
-
-        newPlace.setPlaceName(nameOfPlace.getText().toString());
 
     }
 }
