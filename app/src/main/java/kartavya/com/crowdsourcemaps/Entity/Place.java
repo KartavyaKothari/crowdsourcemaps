@@ -6,6 +6,7 @@ import com.google.android.gms.maps.model.LatLng;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by HP on 2/27/2018.
@@ -13,19 +14,24 @@ import java.util.ArrayList;
 
 public class Place{
     private String placeName;
-    private LatLng placeCoordinates;
+    //private LatLng placeCoordinates;
+    private double lat;
+    private double longi;
     private int placeRating;
-    private ArrayList<String> imageURIs;
+    //private List<String> imageURIs;
+    private String imageURIs;
     private String timings;
     private String placeReview;
 
     public Place() {
     }
 
-    public Place(String placeName, LatLng placeCoordinates, ArrayList<String> imageURI, String timings, int placeRating, String placeReview) {
+    public Place(String placeName, LatLng placeCoordinates, String imageURI, String timings, int placeRating, String placeReview) {
         this.placeName = placeName;
-        this.placeCoordinates = placeCoordinates;
-        imageURIs = imageURI;
+        //this.placeCoordinates = placeCoordinates;
+        this.lat = placeCoordinates.latitude;
+        this.longi = placeCoordinates.longitude;
+        this.imageURIs = imageURI;
         this.timings = timings;
         this.placeRating = placeRating;
         this.placeReview = placeReview;
@@ -39,19 +45,27 @@ public class Place{
         this.placeName = placeName;
     }
 
-    public LatLng getPlaceCoordinates() {
-        return placeCoordinates;
+    public double getLat() {
+        return lat;
     }
 
-    public void setPlaceCoordinates(LatLng placeCoordinates) {
-        this.placeCoordinates = placeCoordinates;
+    public double getLongi() {
+        return longi;
     }
 
-    public ArrayList<String> getImageURIs(int index) {
+    public void setLat(double lat) {
+        this.lat = lat;
+    }
+
+    public void setLongi(double longi) {
+        this.longi = longi;
+    }
+
+    public String getImageURIs() {
         return imageURIs;
     }
 
-    public void setImageURIs(ArrayList<String> imageURIs) {
+    public void setImageURIs(String imageURIs) {
         this.imageURIs = imageURIs;
     }
 

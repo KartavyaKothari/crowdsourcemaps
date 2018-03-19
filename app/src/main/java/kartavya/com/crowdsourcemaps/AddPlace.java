@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -18,6 +19,7 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import kartavya.com.crowdsourcemaps.Entity.Place;
 
@@ -26,7 +28,7 @@ public class AddPlace extends AppCompatActivity {
 
     EditText nameOfPlace;
     EditText placeReview;
-    ArrayList<String> imageURIs;
+    List<String> imageURIs;
     LatLng currPlaceLocation;
     EditText timings;
     EditText rating;
@@ -40,7 +42,8 @@ public class AddPlace extends AppCompatActivity {
 
     public void addPlace(View view){
         Place newPlace = new Place(nameOfPlace.getText().toString(),
-                currPlaceLocation,imageURIs,
+                currPlaceLocation,
+                imageURIs.toString(),
                 timings.getText().toString(),
                 Integer.parseInt(rating.getText().toString()),
                 placeReview.getText().toString()
@@ -99,6 +102,7 @@ public class AddPlace extends AppCompatActivity {
                 public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                     Uri downloadURL = taskSnapshot.getDownloadUrl();
                     imageURIs.add(downloadURL.toString());
+                    Toast.makeText(AddPlace.this, imageURIs.toString(), Toast.LENGTH_LONG).show();
 //                    FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString());
 //                    mMessagesDatabaseReference.push().setValue(friendlyMessage);
                 }

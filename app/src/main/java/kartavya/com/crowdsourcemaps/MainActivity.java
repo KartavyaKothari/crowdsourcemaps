@@ -41,8 +41,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void addPlace(View view) {
         Intent intent = new Intent(this, AddPlace.class);
 
-        intent.putExtra("Latitude",placeLocation.getLatitude());
-        intent.putExtra("Longitude",placeLocation.getLongitude());
+        intent.putExtra("Latitude", placeLocation.getLatitude());
+        intent.putExtra("Longitude", placeLocation.getLongitude());
 
         startActivity(intent);
     }
@@ -67,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     // for ActivityCompat#requestPermissions for more details.
                     return;
                 }
-                locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 1000, locationListener);
+                //locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 1000, locationListener);
             }
         }
     }
@@ -78,31 +78,29 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_main);
 
 
-
 //        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 //
-//        if (ContextCompat.checkSelfPermission(this,
-//                android.Manifest.permission.ACCESS_FINE_LOCATION)
-//                != PackageManager.PERMISSION_GRANTED) {
-//
-//            // Should we show an explanation?
-//            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-//                    android.Manifest.permission.ACCESS_FINE_LOCATION)) {
-//
-//                // Show an explanation to the user *asynchronously* -- don't block
-//                // this thread waiting for the user's response! After the user
-//                // sees the explanation, try again to request the permission.
-//
-//            } else {
-//                // No explanation needed, we can request the permission.
-//                ActivityCompat.requestPermissions(this,
-//                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
-//                        MY_PERMISSIONS_REQUEST_LOCATION);
-//            }
-//            return;
-//        } else {
-//
-//        }
+        if (ContextCompat.checkSelfPermission(this,
+                android.Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED) {
+
+            // Should we show an explanation?
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this,
+                    android.Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+                // Show an explanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this,
+                        new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
+                        MY_PERMISSIONS_REQUEST_LOCATION);
+            }
+        } else {
+
+        }
 //
 //        mFusedLocationClient.getLastLocation()
 //                .addOnSuccessListener(this, new OnSuccessListener<Location>() {
@@ -125,6 +123,19 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
         locationManager = (LocationManager) this.getSystemService(Context.LOCATION_SERVICE);
+        if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        mMap.setMyLocationEnabled(true);
+
+
         locationListener = new LocationListener() {
             @Override
             public void onLocationChanged(Location location) {
@@ -167,7 +178,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION},
                     MY_PERMISSIONS_REQUEST_LOCATION);
         } else {
-            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 5000, 1000, locationListener);
+            locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, locationListener);
 //            Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 //            LatLng currentPlace = new LatLng(location.getLatitude(), location.getLongitude());
 //
