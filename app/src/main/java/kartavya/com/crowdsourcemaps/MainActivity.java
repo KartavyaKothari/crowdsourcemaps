@@ -77,6 +77,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        startActivity(new Intent(this,PlaceDetails.class));
+        finish();
+
 
 //        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 //
