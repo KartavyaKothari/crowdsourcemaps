@@ -44,6 +44,7 @@ public class NearbyPlaces extends AppCompatActivity {
         mMessageListView = (ListView) findViewById(R.id.messageListView);
 
         List<Place> friendlyMessages = new ArrayList<>();
+
         mMessageAdapter = new MessageAdapter(this, R.layout.item_message, friendlyMessages);
         mMessageListView.setAdapter(mMessageAdapter);
 
