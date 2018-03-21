@@ -47,8 +47,8 @@ public class PlaceDetails extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_place_details);
 
         Intent intent = getIntent();
-        latLng = new LatLng(intent.getDoubleExtra("latitude",19.021803),
-                intent.getDoubleExtra("longitude",72.869683));
+        latLng = new LatLng(intent.getDoubleExtra("latitude",19.0639001),
+                intent.getDoubleExtra("longitude",72.8349828));
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map2);

@@ -4,7 +4,9 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -27,11 +29,7 @@ public class NearbyPlaces extends AppCompatActivity {
     MessageAdapter mMessageAdapter;
 
     private ListView mMessageListView;
-
-    public void placeDetails(View view){
-        Intent intent = new Intent(this,PlaceDetails.class);
-        startActivity(intent);
-    }
+    List<Place> places;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,11 +39,20 @@ public class NearbyPlaces extends AppCompatActivity {
         mFirebaseDatabase = FirebaseDatabase.getInstance();
         mMessagesDatabaseReference = mFirebaseDatabase.getReference().child("places");
 
-        mMessageListView = (ListView) findViewById(R.id.messageListView);
+        mMessageListView = findViewById(R.id.messageListView);
+        mMessageListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Intent intent = new Intent(NearbyPlaces.this,PlaceDetails.class);
+                intent.putExtra("latitude",places.get(i).getLat());
+                intent.putExtra("longitude",places.get(i).getLongi());
+                startActivity(intent);
+            }
+        });
 
-        List<Place> friendlyMessages = new ArrayList<>();
+        places = new ArrayList<>();
 
-        mMessageAdapter = new MessageAdapter(this, R.layout.item_message, friendlyMessages);
+        mMessageAdapter = new MessageAdapter(this, R.layout.item_message, places);
         mMessageListView.setAdapter(mMessageAdapter);
 
         mChildEventListener = new ChildEventListener() {
