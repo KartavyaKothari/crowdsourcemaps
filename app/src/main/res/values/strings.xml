@@ -11,6 +11,7 @@
     <string name="MoreImages"> > </string>
     <string name="Timings">Timings</string>
     <string name="Submit">Submit</string>
+    <string name="Navigate">Navigate to Map</string>
 
     //InputTexts
     <string name="PlaceName">Name</string>
@@ -21,5 +22,7 @@
 
     //Google_maps_API_key
     <string name="google_maps_key">AIzaSyCpL3HAi2sk3p5L_8FcN3q2UCOCtJNdbQg</string>
-</resources>
 
+    //ContentDescriptions
+    <string name="PlaceImage">Place Image</string>
+</resources>
