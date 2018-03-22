@@ -45,6 +45,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     TextView showRadius;
 
     int radius;
+    static final int maxRadiusValue = 7;
 
     public void addPlace(View view) {
         Intent intent = new Intent(this, AddPlace.class);
@@ -216,7 +217,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         inputRadius = findViewById(R.id.radiusSeekBar);
         showRadius = findViewById(R.id.showRadius);
 
-        inputRadius.setMax(7);
+        inputRadius.setMax(maxRadiusValue);
 
         showRadius.setText("Selected : " + inputRadius.getProgress() + " km");
 
@@ -224,6 +225,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
                 radius = inputRadius.getProgress()*1000;
                 showRadius.setText("Selected : " + inputRadius.getProgress() + " km");
             }
@@ -235,6 +237,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
+
                 radius = inputRadius.getProgress()*1000;
                 showRadius.setText("Selected : " + inputRadius.getProgress() + " km");
             }
