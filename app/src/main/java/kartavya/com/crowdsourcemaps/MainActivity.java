@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     SeekBar inputRadius;
     TextView showRadius;
 
+    int radius;
+
     public void addPlace(View view) {
         Intent intent = new Intent(this, AddPlace.class);
 
@@ -55,6 +57,11 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     public void nearbyPlace(View view) {
         Intent intent = new Intent(this, NearbyPlaces.class);
+
+        intent.putExtra("latitude",placeLocation.getLatitude());
+        intent.putExtra("longitude",placeLocation.getLongitude());
+        intent.putExtra("radius",radius);
+
         startActivity(intent);
     }
 
@@ -86,7 +93,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 //        startActivity(new Intent(this,PlaceDetails.class));
 //        finish();
-
 
 //        mFusedLocationClient = LocationServices.getFusedLocationProviderClient(this);
 //
@@ -218,7 +224,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-
+                radius = inputRadius.getProgress()*1000;
                 showRadius.setText("Selected : " + inputRadius.getProgress() + " km");
             }
 
@@ -229,7 +235,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
             @Override
             public void onStopTrackingTouch(SeekBar seekBar) {
-
+                radius = inputRadius.getProgress()*1000;
                 showRadius.setText("Selected : " + inputRadius.getProgress() + " km");
             }
         });
