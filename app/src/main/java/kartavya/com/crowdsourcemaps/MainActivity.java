@@ -15,6 +15,8 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.SeekBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
@@ -29,6 +31,7 @@ import com.google.android.gms.maps.model.MarkerOptions;
 import com.google.android.gms.tasks.OnSuccessListener;
 
 public class MainActivity extends AppCompatActivity implements OnMapReadyCallback {
+
     private FusedLocationProviderClient mFusedLocationClient;
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
     GoogleMap mMap;
@@ -37,6 +40,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     LocationListener locationListener;
 
     Location placeLocation;
+
+    SeekBar inputRadius;
+    TextView showRadius;
 
     public void addPlace(View view) {
         Intent intent = new Intent(this, AddPlace.class);
@@ -74,6 +80,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -120,6 +127,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
+        onDragSeekBar();
     }
 
     @Override
@@ -193,5 +202,36 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 //
 //            mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentPlace,15));//Zoom level varies from 1 to 20
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    public void onDragSeekBar () {
+
+        inputRadius = findViewById(R.id.radiusSeekBar);
+        showRadius = findViewById(R.id.showRadius);
+
+        inputRadius.setMax(7);
+
+        showRadius.setText("Selected : " + inputRadius.getProgress() + " km");
+
+        inputRadius.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+
+                showRadius.setText("Selected : " + inputRadius.getProgress() + " km");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+                showRadius.setText("Selected : " + inputRadius.getProgress() + " km");
+            }
+        });
     }
 }
