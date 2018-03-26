@@ -1,5 +1,6 @@
 package kartavya.com.crowdsourcemaps;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -12,6 +13,9 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.RatingBar;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -26,7 +30,36 @@ public class PlaceDetails extends AppCompatActivity implements OnMapReadyCallbac
     GoogleMap mMap;
     LocationManager locationManager;
     LocationListener locationListener;
+
     LatLng latLng;
+    String review;
+    int rating;
+    String imageURI;
+    String timings;
+    String placeName;
+
+    TextView reviewView;
+    TextView showTime;
+
+    RatingBar ratingBar;
+
+    public void chatBegin(View view){
+        Context context = getApplicationContext();
+        PackageManager manager = context.getPackageManager();
+        try {
+            Intent i = manager.getLaunchIntentForPackage("com.pshkrh.pkchat");
+            if (i == null) {
+                return;
+                //throw new ActivityNotFoundException();
+            }
+            i.addCategory(Intent.CATEGORY_LAUNCHER);
+            i.putExtra("groupCode",placeName);
+            context.startActivity(i);
+            return;
+        } catch (ActivityNotFoundException e) {
+            return;
+        }
+    }
 
     public void goToMaps(View view){
         // Create a Uri from an intent string. Use the result to create an Intent.
@@ -46,9 +79,24 @@ public class PlaceDetails extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_place_details);
 
+        reviewView = findViewById(R.id.addReview);
+        showTime = findViewById(R.id.showTime);
+        ratingBar = findViewById(R.id.ratingBar);
+
         Intent intent = getIntent();
         latLng = new LatLng(intent.getDoubleExtra("latitude",19.0639001),
                 intent.getDoubleExtra("longitude",72.8349828));
+        rating = intent.getIntExtra("rating",0);
+        review = intent.getStringExtra("review");
+        imageURI = intent.getStringExtra("imageURI");
+        timings = intent.getStringExtra("timings");
+        placeName = intent.getStringExtra("placeName");
+
+        reviewView.setText(review);
+        showTime.setText(timings);
+        ratingBar.setRating(rating);
+
+        Toast.makeText(this, ""+rating, Toast.LENGTH_SHORT).show();
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map2);
