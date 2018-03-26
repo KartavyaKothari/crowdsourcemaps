@@ -67,9 +67,18 @@ public class NearbyPlaces extends AppCompatActivity {
         mMessageListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Place currPlace = places.get(i);
+
                 Intent intent = new Intent(NearbyPlaces.this,PlaceDetails.class);
-                intent.putExtra("latitude",places.get(i).getLat());
-                intent.putExtra("longitude",places.get(i).getLongi());
+
+                intent.putExtra("latitude",currPlace.getLat());
+                intent.putExtra("longitude",currPlace.getLongi());
+                intent.putExtra("imageURI",currPlace.getImageURIs());
+                intent.putExtra("review",currPlace.getPlaceReview());
+                intent.putExtra("rating",currPlace.getPlaceRating());
+                intent.putExtra("timings",currPlace.getTimings());
+                intent.putExtra("placeName",currPlace.getPlaceName());
+
                 startActivity(intent);
             }
         });
