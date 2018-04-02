@@ -13,10 +13,12 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -38,6 +40,7 @@ public class PlaceDetails extends AppCompatActivity implements OnMapReadyCallbac
     String timings;
     String placeName;
 
+    ImageView placeImage;
     TextView reviewView;
     TextView showTime;
 
@@ -82,6 +85,7 @@ public class PlaceDetails extends AppCompatActivity implements OnMapReadyCallbac
         reviewView = findViewById(R.id.addReview);
         showTime = findViewById(R.id.showTime);
         ratingBar = findViewById(R.id.ratingBar);
+        placeImage = findViewById(R.id.placeImage);
 
         Intent intent = getIntent();
         latLng = new LatLng(intent.getDoubleExtra("latitude",19.0639001),
@@ -92,11 +96,16 @@ public class PlaceDetails extends AppCompatActivity implements OnMapReadyCallbac
         timings = intent.getStringExtra("timings");
         placeName = intent.getStringExtra("placeName");
 
+        Glide.with(placeImage.getContext())
+                .load(imageURI)
+                .into(placeImage);
         reviewView.setText(review);
         showTime.setText(timings);
         ratingBar.setRating(rating);
 
-        Toast.makeText(this, ""+rating, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, imageURI, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, review, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, ""+rating, Toast.LENGTH_SHORT).show();
 
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map2);
