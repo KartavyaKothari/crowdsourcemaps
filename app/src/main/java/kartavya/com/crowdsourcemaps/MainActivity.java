@@ -1,6 +1,7 @@
 package kartavya.com.crowdsourcemaps;
 
 import android.annotation.SuppressLint;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -40,7 +41,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     LocationManager locationManager;
     LocationListener locationListener;
 
-    private ProgressBar spinner;
+    private ProgressDialog progressDialog;
+
     private static final int RC_SIGN_IN = 123;
 
     Location placeLocation;
@@ -97,6 +99,12 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         setContentView(R.layout.activity_main);
 
 
+        progressDialog = new ProgressDialog(this);
+        progressDialog.setIndeterminate(true);
+        progressDialog.setCanceledOnTouchOutside(false);
+        progressDialog.setMessage("Getting location, please wait");
+        progressDialog.setProgressStyle(ProgressDialog.STYLE_SPINNER);
+        progressDialog.show();
 
 //        startActivity(new Intent(this,PlaceDetails.class));
 //        finish();
@@ -176,6 +184,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                         .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
 
                 mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(currentPlace,15));//Zoom level varies from 1 to 20
+
+                progressDialog.dismiss();
             }
 
             @Override
