@@ -15,6 +15,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     LocationManager locationManager;
     LocationListener locationListener;
+
+    private ProgressBar spinner;
+    private static final int RC_SIGN_IN = 123;
 
     Location placeLocation;
 
@@ -91,6 +95,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
 
 //        startActivity(new Intent(this,PlaceDetails.class));
 //        finish();
