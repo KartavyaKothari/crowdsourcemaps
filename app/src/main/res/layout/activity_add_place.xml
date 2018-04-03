@@ -36,71 +36,64 @@
 
     <Button
         android:id="@+id/newPlaceImage"
-        android:layout_width="193dp"
+        android:layout_width="179dp"
         android:layout_height="62dp"
-        android:layout_marginBottom="72dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginBottom="16dp"
+        android:layout_marginStart="16dp"
         android:background="@color/ButtonColor"
         android:text="@string/AddImages"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="112dp"
+        android:layout_width="86dp"
+        android:layout_height="60dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Timings?"
-        app:layout_constraintBottom_toTopOf="@+id/timings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:text="@string/PlaceTiming"
+        app:layout_constraintEnd_toStartOf="@+id/timings"
+        app:layout_constraintHorizontal_bias="0.8"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="171dp" />
 
     <EditText
         android:id="@+id/timings"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_height="59dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="32dp"
         android:ems="10"
-        android:hint="9 to 6"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/newPlaceReview" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_width="71dp"
+        android:layout_height="54dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
-        android:text="Ratings?"
-        app:layout_constraintBottom_toTopOf="@+id/ratings"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginTop="8dp"
+        android:text="@string/PlaceRating"
+        app:layout_constraintBottom_toTopOf="@+id/newPlaceImage"
+        app:layout_constraintEnd_toStartOf="@+id/ratings"
+        app:layout_constraintHorizontal_bias="0.56"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintVertical_bias="0.21" />
 
     <EditText
         android:id="@+id/ratings"
         android:layout_width="0dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginTop="56dp"
         android:ems="10"
-        android:hint="1-5"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/newPlaceImage"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/timings" />
 
     <TextView
         android:id="@+id/textView3"
@@ -131,6 +124,23 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-        app:layout_constraintVertical_bias="0.161" />
+        app:layout_constraintVertical_bias="0.275" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="179dp"
+        android:layout_height="62dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@color/ButtonColor"
+        android:text="@string/TakeSnap"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.724"
+        app:layout_constraintStart_toEndOf="@+id/newPlaceImage"
+        app:layout_constraintTop_toBottomOf="@+id/ratings"
+        app:layout_constraintVertical_bias="0.958" />
 
 </android.support.constraint.ConstraintLayout>

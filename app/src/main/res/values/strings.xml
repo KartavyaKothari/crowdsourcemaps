@@ -11,10 +11,13 @@
     <string name="Timings">Timings</string>
     <string name="Submit">Submit</string>
     <string name="Navigate">Navigate to Map</string>
+    <string name="TakeSnap">Take Snaps</string>
 
     //InputTexts
     <string name="PlaceName">Name : </string>
     <string name="PlaceReview">Review : </string>
+    <string name="PlaceTiming">Timing :   XYam-YZpm </string>
+    <string name="PlaceRating">Rating :            (1-5) </string>
 
     //contentDescription
     <string name="MapLocation">MapLocation</string>
