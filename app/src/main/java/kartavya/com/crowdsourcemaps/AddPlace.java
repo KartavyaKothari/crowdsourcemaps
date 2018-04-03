@@ -10,6 +10,8 @@ import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -62,22 +64,6 @@ public class AddPlace extends AppCompatActivity {
         String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
         Log.i("lalala",path);
         return Uri.parse(path);
-    }
-
-    public void addPlace(View view){
-        Place newPlace = new Place(nameOfPlace.getText().toString(),
-                currPlaceLocation,
-                imageURIs.toString(),
-                timings.getText().toString(),
-                Integer.parseInt(rating.getText().toString()),
-                placeReview.getText().toString()
-        );
-
-        databaseReference.push().setValue(newPlace);
-
-        Intent intent = new Intent(getBaseContext(),MainActivity.class);
-        startActivity(intent);
-        finish();
     }
 
     @Override
@@ -162,5 +148,36 @@ public class AddPlace extends AppCompatActivity {
                 }
             });
         }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.add,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId() == R.id.add) {
+
+            Place newPlace = new Place(nameOfPlace.getText().toString(),
+                    currPlaceLocation,
+                    imageURIs.toString(),
+                    timings.getText().toString(),
+                    Integer.parseInt(rating.getText().toString()),
+                    placeReview.getText().toString()
+            );
+
+            databaseReference.push().setValue(newPlace);
+
+            Intent intent = new Intent(getBaseContext(),MainActivity.class);
+            startActivity(intent);
+
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }
