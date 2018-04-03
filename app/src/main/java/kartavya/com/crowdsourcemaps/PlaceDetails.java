@@ -52,6 +52,7 @@ public class PlaceDetails extends AppCompatActivity implements OnMapReadyCallbac
         try {
             Intent i = manager.getLaunchIntentForPackage("com.pshkrh.pkchat");
             if (i == null) {
+                Toast.makeText(context, "Chat app not found in the phone, please install and then try again", Toast.LENGTH_LONG).show();
                 return;
                 //throw new ActivityNotFoundException();
             }
