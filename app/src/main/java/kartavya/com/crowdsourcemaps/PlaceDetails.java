@@ -97,6 +97,8 @@ public class PlaceDetails extends AppCompatActivity implements OnMapReadyCallbac
         timings = intent.getStringExtra("timings");
         placeName = intent.getStringExtra("placeName");
 
+        imageURI = imageURI.substring(1,imageURI.length());
+
         Glide.with(placeImage.getContext())
                 .load(imageURI)
                 .into(placeImage);

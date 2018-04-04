@@ -32,6 +32,7 @@
         <activity android:name=".Questions" />
         <activity android:name=".PlaceDetails" />
         <activity android:name=".NearbyPlaces"></activity>
+
     </application>
 
 </manifest>

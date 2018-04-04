@@ -6,9 +6,13 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.location.Location;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
+import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -26,7 +30,11 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import kartavya.com.crowdsourcemaps.Entity.Place;
@@ -109,9 +117,9 @@ public class AddPlace extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        progressDialog.show();
 
         if(requestCode == PHOTO_PICKER && resultCode == RESULT_OK){
+            progressDialog.show();
             Uri selectedImageUri = data.getData();
             StorageReference photoRef = mChatPhotosStorageReference.child(selectedImageUri.getLastPathSegment());
 
@@ -129,24 +137,29 @@ public class AddPlace extends AppCompatActivity {
         }
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            progressDialog.show();
             Bundle extras = data.getExtras();
             Bitmap imageBitmap = (Bitmap) extras.get("data");
-            Uri selectedImageUri = getImageUri(getApplicationContext(),imageBitmap);
-            //mImageView.setImageBitmap(imageBitmap);
 
-            StorageReference photoRef = mChatPhotosStorageReference.child(selectedImageUri.getLastPathSegment());
+            Log.i("lalalaal",imageBitmap.toString());
+            Toast.makeText(this, imageBitmap.toString(), Toast.LENGTH_LONG).show();
 
-            photoRef.putFile(selectedImageUri).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                    progressDialog.dismiss();
-                    Uri downloadURL = taskSnapshot.getDownloadUrl();
-                    imageURIs.add(downloadURL.toString());
-                    Toast.makeText(AddPlace.this, imageURIs.toString(), Toast.LENGTH_LONG).show();
-//                    FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString());
-//                    mMessagesDatabaseReference.push().setValue(friendlyMessage);
-                }
-            });
+//            Uri selectedImageUri = getImageUri(AddPlace.this,imageBitmap);
+//            //mImageView.setImageBitmap(imageBitmap);
+//
+//            StorageReference photoRef = mChatPhotosStorageReference.child(selectedImageUri.getLastPathSegment());
+//
+//            photoRef.putFile(selectedImageUri).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//                @Override
+//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                    progressDialog.dismiss();
+//                    Uri downloadURL = taskSnapshot.getDownloadUrl();
+//                    imageURIs.add(downloadURL.toString());
+//                    Toast.makeText(AddPlace.this, imageURIs.toString(), Toast.LENGTH_LONG).show();
+////                    FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString());
+////                    mMessagesDatabaseReference.push().setValue(friendlyMessage);
+//                }
+//            });
         }
     }
 
