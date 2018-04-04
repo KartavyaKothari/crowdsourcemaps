@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     TextView showRadius;
 
     int radius;
-    static final int maxRadiusValue = 7;
+    static final int maxRadiusValue = 15;
 
     public void addPlace(View view) {
         Intent intent = new Intent(this, AddPlace.class);
