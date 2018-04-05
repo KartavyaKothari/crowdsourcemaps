@@ -56,22 +56,31 @@ public class AddPlace extends AppCompatActivity {
     DatabaseReference databaseReference;
     FirebaseStorage mFirebaseStorage;
     StorageReference mChatPhotosStorageReference;
+    Uri imageUri;
 
     private ProgressDialog progressDialog;
 
     public void dispatchTakePictureIntent(View view) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//        imageUri = getImageUri();
+//        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
         }
     }
 
-    public Uri getImageUri(Context inContext, Bitmap inImage) {
-        ByteArrayOutputStream bytes = new ByteArrayOutputStream();
-        inImage.compress(Bitmap.CompressFormat.JPEG, 100, bytes);
-        String path = MediaStore.Images.Media.insertImage(inContext.getContentResolver(), inImage, "Title", null);
-        Log.i("lalala",path);
-        return Uri.parse(path);
+    public Uri getImageUri() {
+        Uri m_imgUri = null;
+        File m_file;
+        try {
+            SimpleDateFormat m_sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+            m_file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator +
+                    m_sdf.format(new Date())
+                    + ".jpg");
+            m_imgUri = Uri.fromFile(m_file);
+        } catch (Exception p_e) {
+        }
+        return m_imgUri;
     }
 
     @Override
@@ -121,6 +130,7 @@ public class AddPlace extends AppCompatActivity {
         if(requestCode == PHOTO_PICKER && resultCode == RESULT_OK){
             progressDialog.show();
             Uri selectedImageUri = data.getData();
+            //Toast.makeText(this, selectedImageUri.getLastPathSegment(), Toast.LENGTH_SHORT).show();
             StorageReference photoRef = mChatPhotosStorageReference.child(selectedImageUri.getLastPathSegment());
 
             photoRef.putFile(selectedImageUri).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
@@ -138,15 +148,11 @@ public class AddPlace extends AppCompatActivity {
 
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
             progressDialog.show();
-            Bundle extras = data.getExtras();
-            Bitmap imageBitmap = (Bitmap) extras.get("data");
 
-            Log.i("lalalaal",imageBitmap.toString());
-            Toast.makeText(this, imageBitmap.toString(), Toast.LENGTH_LONG).show();
+            Uri selectedImageUri = data.getData();
+            //mImageView.setImageBitmap(imageBitmap);
+            Toast.makeText(this, ""+selectedImageUri, Toast.LENGTH_SHORT).show();
 
-//            Uri selectedImageUri = getImageUri(AddPlace.this,imageBitmap);
-//            //mImageView.setImageBitmap(imageBitmap);
-//
 //            StorageReference photoRef = mChatPhotosStorageReference.child(selectedImageUri.getLastPathSegment());
 //
 //            photoRef.putFile(selectedImageUri).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {

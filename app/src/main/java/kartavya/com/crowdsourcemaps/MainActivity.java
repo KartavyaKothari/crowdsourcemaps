@@ -98,6 +98,9 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        Intent intent = new Intent(this, AddPlace.class);
+        startActivity(intent);
+        finish();
 
         progressDialog = new ProgressDialog(this);
         progressDialog.setIndeterminate(true);
