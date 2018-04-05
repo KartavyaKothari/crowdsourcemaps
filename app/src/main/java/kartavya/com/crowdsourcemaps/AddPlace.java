@@ -60,29 +60,6 @@ public class AddPlace extends AppCompatActivity {
 
     private ProgressDialog progressDialog;
 
-    public void dispatchTakePictureIntent(View view) {
-        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//        imageUri = getImageUri();
-//        takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
-        }
-    }
-
-    public Uri getImageUri() {
-        Uri m_imgUri = null;
-        File m_file;
-        try {
-            SimpleDateFormat m_sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
-            m_file = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator +
-                    m_sdf.format(new Date())
-                    + ".jpg");
-            m_imgUri = Uri.fromFile(m_file);
-        } catch (Exception p_e) {
-        }
-        return m_imgUri;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -144,28 +121,6 @@ public class AddPlace extends AppCompatActivity {
 //                    mMessagesDatabaseReference.push().setValue(friendlyMessage);
                 }
             });
-        }
-
-        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            progressDialog.show();
-
-            Uri selectedImageUri = data.getData();
-            //mImageView.setImageBitmap(imageBitmap);
-            Toast.makeText(this, ""+selectedImageUri, Toast.LENGTH_SHORT).show();
-
-//            StorageReference photoRef = mChatPhotosStorageReference.child(selectedImageUri.getLastPathSegment());
-//
-//            photoRef.putFile(selectedImageUri).addOnSuccessListener(this, new OnSuccessListener<UploadTask.TaskSnapshot>() {
-//                @Override
-//                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                    progressDialog.dismiss();
-//                    Uri downloadURL = taskSnapshot.getDownloadUrl();
-//                    imageURIs.add(downloadURL.toString());
-//                    Toast.makeText(AddPlace.this, imageURIs.toString(), Toast.LENGTH_LONG).show();
-////                    FriendlyMessage friendlyMessage = new FriendlyMessage(null, mUsername, downloadURL.toString());
-////                    mMessagesDatabaseReference.push().setValue(friendlyMessage);
-//                }
-//            });
         }
     }
 

@@ -40,10 +40,12 @@
         android:layout_width="179dp"
         android:layout_height="62dp"
         android:layout_marginBottom="48dp"
+        android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
         android:background="@color/ButtonColor"
         android:text="@string/AddImages"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -93,7 +95,7 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/button2"
+        app:layout_constraintBottom_toTopOf="@+id/newPlaceImage"
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="LabelFor" />
 
@@ -127,20 +129,5 @@
         app:layout_constraintEnd_toStartOf="@+id/newPlaceReview"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="179dp"
-        android:layout_height="62dp"
-        android:layout_marginBottom="48dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
-        android:background="@color/ButtonColor"
-        android:onClick="dispatchTakePictureIntent"
-        android:text="@string/TakeSnap"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.619"
-        app:layout_constraintStart_toEndOf="@+id/newPlaceImage" />
 
 </android.support.constraint.ConstraintLayout>
