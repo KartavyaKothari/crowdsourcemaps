@@ -23,7 +23,7 @@
     <string name="MapLocation">MapLocation</string>
 
     //Google_maps_API_key
-    <string name="google_maps_key">AIzaSyCpL3HAi2sk3p5L_8FcN3q2UCOCtJNdbQg</string>
+    <string name="google_maps_key">AIzaSyDnLJrVETJ4Kz68Rh_jaqASze8GJ8IOQak</string>
 
     //ContentDescriptions
     <string name="PlaceImage">Place Image</string>
